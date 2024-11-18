@@ -17,11 +17,8 @@ public class ChooseSpaceShipGUI extends JFrame {
 	private static JLabel lbl_spaceShip;
 	public static JRadioButton radio_btn_ufo, radio_btn_deLorean, radio_btn_rocket;
 	private static JButton btn_confirm;
-	private static ButtonGroup btn_group;
 
-	private static String playerName;
-
-	// Spaceships Images
+    // Spaceships Images
 	private static final Icon iconUfo = new ImageIcon("attachments/ufo.png");
 	private static final Icon iconDelorean = new ImageIcon("attachments/delorean1.2.png");
 	private static final Icon iconRocket = new ImageIcon("attachments/rocket.png");
@@ -30,7 +27,7 @@ public class ChooseSpaceShipGUI extends JFrame {
 	public ChooseSpaceShipGUI() {
 		initFrame();		// Initialises main frame
 		initComponents();	// Initialises components
-		layoutComponents();
+		layoutComponents();	//
 		setupListeners();
 	}
 
@@ -44,7 +41,7 @@ public class ChooseSpaceShipGUI extends JFrame {
 
 	// Components
 	private void initComponents() {
-		playerName = PlayerGUI.getTxtName();
+        String playerName = PlayerGUI.getTxtName();
 
 		// Initialize labels
 		lbl_spaceShip = new JLabel("Welcome Commander " + playerName + "! Select your Spaceship!");
@@ -67,7 +64,7 @@ public class ChooseSpaceShipGUI extends JFrame {
 		configureRadioButton(radio_btn_deLorean);
 
 		// Initialise button group
-		btn_group = new ButtonGroup();
+        ButtonGroup btn_group = new ButtonGroup();
 		btn_group.add(radio_btn_ufo);
 		btn_group.add(radio_btn_rocket);
 		btn_group.add(radio_btn_deLorean);

@@ -14,10 +14,11 @@ public class Variables {
 
 	// Standard GUI variables
 	public static JFrame frame;
-	public static int screenwitdh = 800, screenheight = 600;
-	public static int backgroundSpeed = 10;		// The larger the number, the slower = image is rotated every 10 miliseconds.
+	public static int screenwitdh = 1000, screenheight = 800;
+	// The larger the number, the slower = image is rotated every 10 milliseconds
+	public static int backgroundSpeed = 10;
 		
-	// KeyHandler variables (standard = false, so that movements do not take place arbitrarily)
+	// KeyHandler variables (standard = false, so movements don't take place arbitrarily)
 	public static boolean moveUp = false, moveDown = false, moveLeft = false, moveRight = false;
 		
 	// Main-Label variables
@@ -26,7 +27,7 @@ public class Variables {
 	// Background variables
 	public static BufferedImage spaceImage1, spaceImage2;
 	public static int backgroundY1 = 0;
-	public static int backgroundY2 = -600; // -600, because screenheight = 600
+	public static int backgroundY2 = -800; // -600, because screenheight = 600
 	
 	// SpaceShip variables
 	public static BufferedImage imageUfo;
@@ -42,16 +43,8 @@ public class Variables {
 	public static BufferedImage rocketLights1, rocketLights2;
 	public static BufferedImage deloreanLights1, deloreanLights2;
 	public static int animatedLights;
-	
-	// Spaceship shots
-	public BufferedImage ufoAmmo;
-	public static int ammo = 10, maxAmmo = 100;
-	public static int shotX, shotY;
-	public static int shotEnemyX, shotEnemyY;
-	public boolean isShooting = false;
-	public boolean isHit = false;
-	
-	// Meteorite vaiables
+
+	// Meteorite Variables
 	public static BufferedImage imageMeteorite;
 	public static int meteoritesX[] = new int[10];
 	public static int meteoritesY[] = new int[10];
@@ -118,23 +111,12 @@ public class Variables {
 			// Collectibles 
 			imageAstronaut = ImageIO.read(new File("attachments/astronaut.png"));
 			imageET = ImageIO.read(new File("attachments/ET.png"));
-			
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("Bild konnte nicht geladen werden.");
 		}
-		
-		/*	 
-		// set speed of meteorites individually --> could also be done in a loop
-		meteoritesSpeed[0] = randomInt;
-		meteoritesSpeed[1] = randomInt; 
-		meteoritesSpeed[2] = randomInt;
-		meteoritesSpeed[3] = randomInt;
-		meteoritesSpeed[4] = randomInt;
-		}
-		*/
-		
+
 		// set speed of collectibles
 		collectiblesSpeed1[0] = 2;
 		collectiblesSpeed1[1] = 3;

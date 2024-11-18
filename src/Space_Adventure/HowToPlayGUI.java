@@ -152,6 +152,5 @@ public class HowToPlayGUI extends JFrame {
 		pnl_btn.add(btn_confirm);
 		
 		pane.add(pnl_btn);
-		
 	}	
 }

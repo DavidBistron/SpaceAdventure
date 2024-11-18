@@ -5,37 +5,24 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.awt.event.KeyEvent;
-import javax.swing.JButton;
+import java.io.Serial;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 // Class for painting the background, images etc.
 public class Label extends JLabel {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
-	
-	/*
-	// solution to show GIF
-	JLabel imageLabel = new JLabel();
-	ImageIcon ii = new ImageIcon(this.getClass().getResource("explosion.gif"));
-	*/
-	
-	private JPanel pnl_restart;
-	private JButton btn_restart;
-	
+
 	// Constructor --> not needed, because no objects to create
 	public Label() {
-		// imageLabel.setIcon(ii);
 	}
 	
-	// Method for painting components
-	// Order of images is important
+	// Method for painting components - order of images is important
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		// Decission for game lost or not
-		// if game lost = false
+		// Decision for game lost or not - if game lost = false
 		if (!Variables.lostGame) {
 			
 		// Necessary code snippet for correct graphics
@@ -65,28 +52,28 @@ public class Label extends JLabel {
 		}
 		
 		// SpaceShips
-		if (ChooseSpaceShipGUI.radio_btn_ufo.isSelected() == true) {
+		if (ChooseSpaceShipGUI.radio_btn_ufo.isSelected()) {
 			g.drawImage(Variables.imageUfo, Variables.ufoX, Variables.ufoY, 50, 70, null);
-		} else if (ChooseSpaceShipGUI.radio_btn_rocket.isSelected() == true) {
+		} else if (ChooseSpaceShipGUI.radio_btn_rocket.isSelected()) {
 			g.drawImage(Variables.imageRocket, Variables.ufoX, Variables.ufoY, 50, 70, null);
-		} else if (ChooseSpaceShipGUI.radio_btn_deLorean.isSelected() == true) {
+		} else if (ChooseSpaceShipGUI.radio_btn_deLorean.isSelected()) {
 			g.drawImage(Variables.imageDelorean, Variables.ufoX, Variables.ufoY, 50, 70, null);
 		}
 		
 		// Tail animation --> Y+60, because otherwise lights will be placed in SpaceShip!
-		if (ChooseSpaceShipGUI.radio_btn_ufo.isSelected() == true) {
+		if (ChooseSpaceShipGUI.radio_btn_ufo.isSelected()) {
 			if (Variables.animatedLights == 0) {
 				g.drawImage(Variables.ufoLights1, Variables.ufoX, Variables.ufoY+45, 50, 50, null);
 			} else if (Variables.animatedLights == 1) {
 				g.drawImage(Variables.ufoLights2, Variables.ufoX, Variables.ufoY+45, 50, 50, null);
 			}
-		} else if (ChooseSpaceShipGUI.radio_btn_rocket.isSelected() == true) {
+		} else if (ChooseSpaceShipGUI.radio_btn_rocket.isSelected()) {
 			if (Variables.animatedLights == 0) {
 				g.drawImage(Variables.rocketLights1, Variables.ufoX, Variables.ufoY+60, 50, 50, null);
 			} else if (Variables.animatedLights == 1) {
 				g.drawImage(Variables.rocketLights2, Variables.ufoX, Variables.ufoY+60, 50, 50, null);
 			}
-		} else if (ChooseSpaceShipGUI.radio_btn_deLorean.isSelected() == true) {
+		} else if (ChooseSpaceShipGUI.radio_btn_deLorean.isSelected()) {
 			if (Variables.animatedLights == 0) {
 				g.drawImage(Variables.deloreanLights1, Variables.ufoX, Variables.ufoY+45, 70, 70, null);
 			} else if (Variables.animatedLights == 1) {
@@ -116,13 +103,5 @@ public class Label extends JLabel {
 
 		// Necessary method to draw the images constantly, not only once! If only once drawed, images will disappear immediately!
 		repaint();
-	}
-	
-	public void restartGame(KeyEvent e) {
-		int key = e.getKeyCode();
-		
-		if (key == KeyEvent.VK_R) {
-			paintComponent(getGraphics());
-		}
 	}
 }

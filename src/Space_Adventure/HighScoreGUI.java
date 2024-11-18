@@ -1,16 +1,18 @@
 package Space_Adventure;
 
-import java.awt.BorderLayout;
-import java.awt.Graphics;
-import java.awt.Image;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.imageio.ImageIO;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class HighScoreGUI extends JFrame {
 
@@ -19,7 +21,7 @@ public class HighScoreGUI extends JFrame {
 	private static JButton btn_back;
 	private static Image bg;
 	
-	@SuppressWarnings({ "serial", "static-access" })
+	@SuppressWarnings({"static-access"})
 	public HighScoreGUI() {
 		highScore_frame = new JFrame("High Scores");
 		highScore_frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -49,5 +51,4 @@ public class HighScoreGUI extends JFrame {
 		SecondScreen ss = new SecondScreen();
 		ss.showOnScreen(1, highScore_frame);
 	}
-
 }

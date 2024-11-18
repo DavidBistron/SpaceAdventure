@@ -9,7 +9,7 @@ import javax.sound.sampled.Clip;
 // Class for managing sound effects
 public class SoundEffects {
 
-	public static String click_sound, laser_sound, lostGame_sound, startMenuMusic;
+	public static String click_sound, startMenuMusic;
 	public static Clip clip;
 
 	// Constructor
@@ -21,19 +21,7 @@ public class SoundEffects {
 		setFile(click_sound);
 		play();
 	}
-	
-	public void SoundEffectsLaser() {
-		laser_sound = ".//audio//Sound_of_god.wav";
-		setFile(laser_sound);
-		play();
-	}
-	
-	public void SoundEffectsLostGame() {
-		lostGame_sound = ".//audio//Lost_game.wav";
-		setFile(lostGame_sound);
-		play();
-	}
-	
+
 	public void StartMenuMusic() {
 		startMenuMusic = ".//audio//StartScreen.wav";
 		setFile(startMenuMusic);
@@ -78,5 +66,3 @@ public class SoundEffects {
 		clip.stop();
 	}
 }
-
-

@@ -5,7 +5,7 @@ import java.util.TimerTask;
 
 public class BackgroundMovement {
 
-	// Timer = one possibility (Other is ...) --> need to be importet from java.util
+	// Timer
 	Timer bmTime;
 	
 	// Constructor

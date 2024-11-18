@@ -1,85 +1,109 @@
 package Space_Adventure;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serial;
 
-import javax.swing.ButtonGroup;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JRadioButton;
-import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 
 public class ChooseSpaceShipGUI extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
-	
-	public static JFrame choose_frame;
-	public static JLabel lbl_spaceShip;
+
+	// Variables
+	private static JFrame choose_frame;
+	private static JLabel lbl_spaceShip;
 	public static JRadioButton radio_btn_ufo, radio_btn_deLorean, radio_btn_rocket;
-	public static JButton btn_confirm;
-		
-	private static Icon iconUfo = new ImageIcon("attachments/ufo.png");
-	private static Icon iconDelorean = new ImageIcon("attachments/delorean1.2.png");
-	private static Icon iconRocket = new ImageIcon("attachments/rocket.png");
-	
+	private static JButton btn_confirm;
 	private static ButtonGroup btn_group;
-	
-	private String playerName;
-	
-	JLabel picture;
-	
-	@SuppressWarnings("static-access")
-	public ChooseSpaceShipGUI() {	
-		
-		choose_frame = new JFrame("Special-Options");
+
+	private static String playerName;
+
+	// Spaceships Images
+	private static final Icon iconUfo = new ImageIcon("attachments/ufo.png");
+	private static final Icon iconDelorean = new ImageIcon("attachments/delorean1.2.png");
+	private static final Icon iconRocket = new ImageIcon("attachments/rocket.png");
+
+	// SpaceshipGUI - Modular structure
+	public ChooseSpaceShipGUI() {
+		initFrame();		// Initialises main frame
+		initComponents();	// Initialises components
+		layoutComponents();
+		setupListeners();
+	}
+
+	// Main Frame
+	private void initFrame() {
+		choose_frame = new JFrame("Spaceship-Options");
 		choose_frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		choose_frame.setPreferredSize(new Dimension(Variables.screenwitdh, Variables.screenheight));
-		// choose_frame.setLocationRelativeTo(null);
-		
-		BorderLayout border = new BorderLayout();
-		choose_frame.getContentPane().setLayout(border);
-		
+		choose_frame.getContentPane().setLayout(new BorderLayout());
+	}
+
+	// Components
+	private void initComponents() {
 		playerName = PlayerGUI.getTxtName();
-				
+
+		// Initialize labels
 		lbl_spaceShip = new JLabel("Welcome Commander " + playerName + "! Select your Spaceship!");
 		lbl_spaceShip.setOpaque(true);
 		lbl_spaceShip.setBackground(Color.BLACK);
-		lbl_spaceShip.setForeground(Color.WHITE);
+		lbl_spaceShip.setForeground(Color.GREEN);
 		lbl_spaceShip.setFont(new Font("Serif", Font.ITALIC, 22));
-		lbl_spaceShip.setPreferredSize(new Dimension(100,100));
+		lbl_spaceShip.setPreferredSize(new Dimension(100, 100));
 		lbl_spaceShip.setHorizontalAlignment(SwingConstants.CENTER);
-				
+
+		// Initialize radio buttons
 		radio_btn_ufo = new JRadioButton("Ufo", iconUfo);
 		radio_btn_ufo.setSelected(true);
-		radio_btn_ufo.setBackground(Color.GRAY);
-		radio_btn_ufo.setForeground(Color.WHITE);
-		
+		configureRadioButton(radio_btn_ufo);
+
 		radio_btn_rocket = new JRadioButton("Rocket", iconRocket);
-		radio_btn_rocket.setHorizontalAlignment(SwingConstants.CENTER);
-		radio_btn_rocket.setBackground(Color.GRAY);
-		radio_btn_rocket.setForeground(Color.WHITE);
-		
+		configureRadioButton(radio_btn_rocket);
+
 		radio_btn_deLorean = new JRadioButton("Delorean", iconDelorean);
-		radio_btn_deLorean.setBackground(Color.GRAY);
-		radio_btn_deLorean.setForeground(Color.WHITE);
-		
+		configureRadioButton(radio_btn_deLorean);
+
+		// Initialise button group
 		btn_group = new ButtonGroup();
 		btn_group.add(radio_btn_ufo);
 		btn_group.add(radio_btn_rocket);
 		btn_group.add(radio_btn_deLorean);
-		
+
+		// Initialise confirm button
 		btn_confirm = new JButton("Confirm selection and start game!");
 		btn_confirm.setForeground(Color.GREEN);
 		btn_confirm.setBackground(Color.BLACK);
-		btn_confirm.setPreferredSize(new Dimension(50,50));
+		btn_confirm.setPreferredSize(new Dimension(50, 50));
+	}
+
+	private void layoutComponents() {
+		// Layout the components
+		choose_frame.add(lbl_spaceShip, BorderLayout.PAGE_START);
+		choose_frame.add(radio_btn_ufo, BorderLayout.LINE_START);
+		choose_frame.add(radio_btn_rocket, BorderLayout.CENTER);
+		choose_frame.add(radio_btn_deLorean, BorderLayout.LINE_END);
+		choose_frame.add(btn_confirm, BorderLayout.PAGE_END);
+
+		choose_frame.pack();
+		choose_frame.setVisible(true);
+
+		// Code for second screen if applicable
+		SecondScreen ss = new SecondScreen();
+		ss.showOnScreen(1, choose_frame);
+	}
+
+	// Method for configuring ratioButtons -> Standardised configuration
+	private void configureRadioButton(JRadioButton radioButton) {
+		radioButton.setBackground(Color.BLACK);
+		radioButton.setForeground(Color.WHITE);
+		radioButton.setHorizontalAlignment(SwingConstants.CENTER);
+	}
+
+	// Method for confirm-btn (new Listeners should be added here)
+	private void setupListeners() {
 		btn_confirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				choose_frame.dispose();
@@ -88,18 +112,5 @@ public class ChooseSpaceShipGUI extends JFrame {
 				new SoundEffects().LevelOneMusic();
 			}
 		});
-		
-		choose_frame.add(lbl_spaceShip, BorderLayout.PAGE_START);
-		choose_frame.add(radio_btn_ufo, BorderLayout.LINE_START);
-		choose_frame.add(radio_btn_rocket, BorderLayout.CENTER);
-		choose_frame.add(radio_btn_deLorean, BorderLayout.LINE_END);
-		choose_frame.add(btn_confirm, BorderLayout.PAGE_END);
-		
-		choose_frame.pack();
-		choose_frame.setVisible(true);
-		
-		// Code only needed, if working with a second screen; call method and select Screen 1
-		SecondScreen ss = new SecondScreen();
-		ss.showOnScreen(1, choose_frame);
 	}
 }

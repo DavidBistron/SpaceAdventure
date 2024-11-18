@@ -6,6 +6,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
+// Class for managing sound effects
 public class SoundEffects {
 
 	public static String click_sound, laser_sound, lostGame_sound, startMenuMusic;

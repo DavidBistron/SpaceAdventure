@@ -32,9 +32,6 @@ public class GUI {
 		SecondScreen ss = new SecondScreen();
 		ss.showOnScreen(1, Variables.frame);
 		
-		// Music
-		// Music.sounds("audio/InGame.wav");
-		
 		mM = new MeteoriteMovement();
 	}	
 }

@@ -9,14 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 
 public class PlayerGUI extends JFrame {
 
@@ -31,7 +25,7 @@ public class PlayerGUI extends JFrame {
 		
 	private static Image bg;
 	
-	@SuppressWarnings({ "serial", "static-access" })
+
 	public PlayerGUI() {
 			
 		player_frame = new JFrame("Enter Name");

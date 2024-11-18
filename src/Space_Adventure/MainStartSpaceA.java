@@ -8,11 +8,17 @@ public class MainStartSpaceA {
 		new Variables();
 		new Label();
 		new KeyHandler();
+
+		// Movements
 		new BackgroundMovement();
 		new PlayerMovement();
 		new CollectiblesMovement();
+
+		// Collisions
 		new CollectiblesCollision();
 		new MeteoriteCollision();
+
+		// Animations
 		new UfoLightsAnimation();
 		new Explosion();
 	}

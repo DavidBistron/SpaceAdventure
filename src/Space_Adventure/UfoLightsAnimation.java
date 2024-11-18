@@ -3,6 +3,7 @@ package Space_Adventure;
 import java.util.Timer;
 import java.util.TimerTask;
 
+// Class for fire animation of ufo, rocket and delorean
 public class UfoLightsAnimation {
 
 	Timer ulaTimer;

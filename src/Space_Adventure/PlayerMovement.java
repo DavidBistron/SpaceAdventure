@@ -15,26 +15,28 @@ public class PlayerMovement {
 			// True gesetzt sind, wenn ja = Bewegung erfolgt
 			@Override
 			public void run() {
-				if (Variables.moveUp == true) {
-					if (Variables.ufoY > 0) { 					// Abhängig von der Bildgröße! Bild ist auf Y-Achse 600 Pixel groß; oben links = 0 = Beginn [damit das Ufo nicht aus dem Bild fliegen kann 0]
+				if (Variables.moveUp) {
+					// Depending on the screen size! Image size on Y-axis is 600 pixels; top left = 0 = start [so that the UFO cannot fly out of the image 0]
+					if (Variables.ufoY > 0) {
 						Variables.ufoY -= Variables.speedUp;
 					}
-				} else if (Variables.moveDown == true) {
-					if (Variables.ufoY <= 495) { 				// Abhängig von der Bildgröße! Bild ist auf Y-Achse 600 Pixel groß; Ufo selbst ist 70 Pixel hoch; damit das Ufo nicht aus dem Bild fliegen kann 490
+				} else if (Variables.moveDown) {
+					// Depending on the screen size! Image is 600 pixels on Y-axis; UFO itself is 70 pixels high; so that the UFO cannot fly out of the image 490
+					if (Variables.ufoY <= 495) {
 						Variables.ufoY += Variables.speedDown;
 					}
 				}
 
-				if (Variables.moveLeft == true) {
+				if (Variables.moveLeft) {
 					if (Variables.ufoX > 10) {
 						Variables.ufoX -= Variables.speedLeft;
 					}
-				} else if (Variables.moveRight == true) {
-					if (Variables.ufoX <= 720) { 				// Abhängig von der Bildgröße! Bild ist auf X-Achse 800 Pixel groß; Ufo selbst ist 50 Pixel breit; damit das Ufo nicht aus dem Bild fliegen kann 490
+				} else if (Variables.moveRight) {
+					if (Variables.ufoX <= 720) {
 						Variables.ufoX += Variables.speedRight;
 					}
 				}
 			}
-		}, 0, 10); // Wdh. nach 10 Milisekunden
+		}, 0, 10); // Repeat after 10 milliseconds
 	}
 }

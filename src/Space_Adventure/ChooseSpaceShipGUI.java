@@ -86,10 +86,6 @@ public class ChooseSpaceShipGUI extends JFrame {
 
 		choose_frame.pack();
 		choose_frame.setVisible(true);
-
-		// Code for second screen if applicable
-		SecondScreen ss = new SecondScreen();
-		ss.showOnScreen(1, choose_frame);
 	}
 
 	// Method for configuring ratioButtons -> Standardised configuration

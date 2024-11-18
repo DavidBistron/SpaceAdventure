@@ -95,13 +95,9 @@ public class Label extends JLabel {
 			g.setFont(new Font("Arial",Font.BOLD, 35));
 			g.drawString("Game Over!", 310, 200);
 			
-			g.drawString("Press 'R' to restart game!", 195, 300);
-						
 			repaint();
-			// new SoundEffects().SoundEffectsLostGame();
 		}
-
-		// Necessary method to draw the images constantly, not only once! If only once drawed, images will disappear immediately!
+		// Necessary method to draw the images constantly, not only once! If only once drawn, images will disappear immediately!
 		repaint();
 	}
 }

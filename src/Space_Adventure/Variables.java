@@ -7,27 +7,19 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 
 // Class to collect all variables
 public class Variables {
 
-	// Standard GUI variables
-	public static JFrame frame;
-	public static int screenwitdh = 1000, screenheight = 800;
-	// The larger the number, the slower = image is rotated every 10 milliseconds
-	public static int backgroundSpeed = 10;
-		
+	public static int screenwitdh = 800, screenheight = 600;
+
 	// KeyHandler variables (standard = false, so movements don't take place arbitrarily)
 	public static boolean moveUp = false, moveDown = false, moveLeft = false, moveRight = false;
-		
-	// Main-Label variables
-	public static Label label; 
 	
 	// Background variables
 	public static BufferedImage spaceImage1, spaceImage2;
 	public static int backgroundY1 = 0;
-	public static int backgroundY2 = -800; // -600, because screenheight = 600
+	public static int backgroundY2 = -600; // -600, because screen height = 600
 	
 	// SpaceShip variables
 	public static BufferedImage imageUfo;
@@ -46,34 +38,29 @@ public class Variables {
 
 	// Meteorite Variables
 	public static BufferedImage imageMeteorite;
-	public static int meteoritesX[] = new int[10];
-	public static int meteoritesY[] = new int[10];
-	// Speed of meteorites different
-	public static int meteoritesSpeed[] = new int[5];
+	public static int[] meteoritesX = new int[10];
+	public static int[] meteoritesY = new int[10];
 	
 	// Collectibles
 	public static BufferedImage imageAstronaut;
 	public static BufferedImage imageET;
-	public static int collectiblesX1[] = new int [5];
-	public static int collectiblesY1[] = new int [5];
-	public static int collectiblesX2[] = new int [5];
-	public static int collectiblesY2[] = new int [5];
-	public static int collectiblesSpeed1[] = new int [6];
-	public static int collectiblesSpeed2[] = new int [3];
+	public static int[] collectiblesX1 = new int [5];
+	public static int[] collectiblesY1 = new int [5];
+	public static int[] collectiblesX2 = new int [5];
+	public static int[] collectiblesY2 = new int [5];
+	public static int[] collectiblesSpeed1 = new int [6];
+	public static int[] collectiblesSpeed2 = new int [3];
 	
 	public static boolean collect1 = false;
 	public static boolean collect2 = false;
 	
 	// Collision --> default = false
-	public static BufferedImage imageHitMeteorite;
 	public static Image iconHit;
 	public static boolean collision = false;
 	public static boolean loseEnergy = false;
 	public static boolean lostGame = false;
 	public static int expAnimation;
-	
-	// Music variables --> see SoundEffect Class
-		
+
 	// Constructor
 	public Variables() {
 		try {
@@ -106,25 +93,26 @@ public class Variables {
 			// imageHitMeteorite = ImageIO.read(new File("attachments/explosion.gif"));
 			iconHit = new ImageIcon("attachments/explosion.gif").getImage();
 			
-			// Spaceship Shots 
-			
 			// Collectibles 
 			imageAstronaut = ImageIO.read(new File("attachments/astronaut.png"));
 			imageET = ImageIO.read(new File("attachments/ET.png"));
 
 		} catch (IOException e) {
 			e.printStackTrace();
-			System.out.println("Bild konnte nicht geladen werden.");
+			System.out.println("File not found.");
 		}
 
-		// set speed of collectibles
+		// Set individual speed of collectibles
+
+		// Standard collectible
 		collectiblesSpeed1[0] = 2;
 		collectiblesSpeed1[1] = 3;
 		collectiblesSpeed1[2] = 2;
 		collectiblesSpeed1[3] = 3;
 		collectiblesSpeed1[4] = 4;
 		collectiblesSpeed1[5] = 3;
-		
+
+		// Rare collectible
 		collectiblesSpeed2[0] = 4;
 		collectiblesSpeed2[1] = 6;
 		collectiblesSpeed2[2] = 5;

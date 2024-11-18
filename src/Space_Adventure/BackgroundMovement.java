@@ -5,6 +5,9 @@ import java.util.TimerTask;
 
 public class BackgroundMovement {
 
+	// The larger the number, the slower = image is rotated every 10 milliseconds
+	public static int backgroundSpeed = 10;
+
 	// Timer
 	Timer bmTime;
 	
@@ -20,13 +23,12 @@ public class BackgroundMovement {
 				} else {
 					Variables.backgroundY1 = -600;
 				}
-				
 				if (Variables.backgroundY2 < 596) {
 					Variables.backgroundY2 += 2;
 				} else {
 					Variables.backgroundY2 = -600;
 				}
 			}
-		}, 0, Variables.backgroundSpeed);
+		}, 0, backgroundSpeed);
 	}
 }

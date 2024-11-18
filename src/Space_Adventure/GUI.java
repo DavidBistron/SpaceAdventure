@@ -3,35 +3,30 @@ package Space_Adventure;
 import javax.swing.JFrame;
 
 public class GUI {
-	
+	// Main-Label variables
+	public static Label label;
 	MeteoriteMovement mM;
+	public static JFrame frame;
 
 	// Constructor
 	@SuppressWarnings("static-access")
 	public GUI() {
 		
-		Variables.frame = new JFrame();
-		Variables.frame.setTitle("Space Adventure");
-		Variables.frame.setDefaultCloseOperation(Variables.frame.EXIT_ON_CLOSE);
-		Variables.frame.setSize(Variables.screenwitdh, Variables.screenheight);
-		Variables.frame.setLocationRelativeTo(null);
-		Variables.frame.setResizable(false);
-		// Variables.frame.setLayout(null);	// no layout needed, drawing is done on the label
+		frame = new JFrame();
+		frame.setTitle("Space Adventure");
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		frame.setSize(Variables.screenwitdh, Variables.screenheight);
+		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
+		frame.addKeyListener(new KeyHandler());
+		frame.requestFocus(); 	// necessary for KeyHandler
+		frame.setVisible(true);
 		
-		Variables.frame.addKeyListener(new KeyHandler());
-		Variables.frame.requestFocus(); 	// necessary for KeyHandler
+		label = new Label();
+		label.setBounds(0, 0, Variables.screenwitdh, Variables.screenheight);
+		label.setVisible(true);
+		frame.add(label);
 
-		Variables.frame.setVisible(true);
-		
-		Variables.label = new Label();
-		Variables.label.setBounds(0, 0, Variables.screenwitdh, Variables.screenheight);
-		Variables.label.setVisible(true);
-		Variables.frame.add(Variables.label);
-		
-		// Code only needed, if working with a second screen; call method and select Screen 1
-		SecondScreen ss = new SecondScreen();
-		ss.showOnScreen(1, Variables.frame);
-		
 		mM = new MeteoriteMovement();
 	}	
 }

@@ -31,7 +31,6 @@ public class PlayerGUI extends JFrame {
 		player_frame = new JFrame("Enter Name");
 		player_frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		player_frame.setPreferredSize(new Dimension(Variables.screenwitdh, Variables.screenheight));
-		// player_frame.setLocationRelativeTo(null);
 		player_frame.setResizable(false);
 		
 		// draw background
@@ -72,10 +71,6 @@ public class PlayerGUI extends JFrame {
 		
 		player_frame.pack();
 		player_frame.setVisible(true);
-		
-		// Code only needed, if working with a second screen; call method and select Screen 1
-		SecondScreen ss = new SecondScreen();
-		ss.showOnScreen(1, player_frame);
 	}
 	
 	public static String getTxtName() {

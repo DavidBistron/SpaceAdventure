@@ -64,10 +64,6 @@ public class HowToPlayGUI extends JFrame {
 		// add components to pane
 		addComponentsToPane(howTo_frame.getContentPane());
 		howTo_frame.setVisible(true);
-
-		// Code only needed, if working with a second screen; call method and select Screen 1
-		SecondScreen ss = new SecondScreen();
-		ss.showOnScreen(1, howTo_frame);
 	}
 
 	public static void addLabel(String text, Container container) {

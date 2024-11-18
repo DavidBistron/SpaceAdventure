@@ -46,9 +46,5 @@ public class HighScoreGUI extends JFrame {
 		btn_back = new JButton("Back to main menu");
 		highScore_frame.setVisible(true);
 		highScore_frame.add(btn_back);
-
-		// Code only needed, if working with a second screen; call method and select Screen 1
-		SecondScreen ss = new SecondScreen();
-		ss.showOnScreen(1, highScore_frame);
 	}
 }

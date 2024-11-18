@@ -12,20 +12,17 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+// Class for adding a player name
 public class PlayerGUI extends JFrame {
 
+	// Variables
 	private static final long serialVersionUID = 1L;
 	private static JFrame player_frame;
-	private static JButton btn_confirm;
-		
-	private static JLabel lbl_name;
-	private static JTextField txt_name;
-	
+    private static JTextField txt_name;
 	private static String s;
-		
 	private static Image bg;
 	
-
+	// Constructor
 	public PlayerGUI() {
 			
 		player_frame = new JFrame("Enter Name");
@@ -33,7 +30,7 @@ public class PlayerGUI extends JFrame {
 		player_frame.setPreferredSize(new Dimension(Variables.screenwitdh, Variables.screenheight));
 		player_frame.setResizable(false);
 		
-		// draw background
+		// Draw background
 				try {
 					bg = ImageIO.read(new File("attachments/space1.png"));
 					player_frame.setContentPane(new JPanel(new FlowLayout()) {
@@ -47,14 +44,14 @@ public class PlayerGUI extends JFrame {
 		
 		FlowLayout flow = new FlowLayout();
 		player_frame.getContentPane().setLayout(flow);
-				
-		lbl_name = new JLabel("Enter your name: ");
+
+        JLabel lbl_name = new JLabel("Enter your name: ");
 		lbl_name.setForeground(Color.WHITE);
 		
 		txt_name = new JTextField();
 		txt_name.setColumns(10);
-		
-		btn_confirm = new JButton("Confirm!");
+
+        JButton btn_confirm = new JButton("Confirm!");
 		btn_confirm.setBackground(Color.BLACK);
 		btn_confirm.setForeground(Color.GREEN);
 		btn_confirm.addActionListener(new ActionListener() {
@@ -68,7 +65,6 @@ public class PlayerGUI extends JFrame {
 		player_frame.add(lbl_name);
 		player_frame.add(txt_name);
 		player_frame.add(btn_confirm);
-		
 		player_frame.pack();
 		player_frame.setVisible(true);
 	}

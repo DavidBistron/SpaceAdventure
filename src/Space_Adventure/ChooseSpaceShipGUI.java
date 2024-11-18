@@ -101,7 +101,7 @@ public class ChooseSpaceShipGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				choose_frame.dispose();
 				SoundEffects.stop();
-				new GUI();
+				new GUI();	// Opens the "playing" GUI
 				new SoundEffects().LevelOneMusic();
 			}
 		});

@@ -3,17 +3,20 @@ package Space_Adventure;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+// Class for handling movements of spaceship
 public class KeyHandler implements KeyListener {
 
-	// Constructor --> not needed, because no objects to create
+	// Constructor
 	public KeyHandler() {
 	}
 
 	@Override
+	// Key Type
 	public void keyTyped(KeyEvent e) {	
 	}
 
 	@Override
+	// Press key
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_W) {
 			Variables.moveUp = true;
@@ -30,6 +33,7 @@ public class KeyHandler implements KeyListener {
 	}
 
 	@Override
+	// Release Key
 	public void keyReleased(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_W) {
 			Variables.moveUp = false;

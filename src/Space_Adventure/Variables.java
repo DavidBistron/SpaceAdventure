@@ -4,24 +4,34 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Timer;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
+import javax.swing.*;
 
 // Class to collect all variables
 public class Variables {
 
+	// General Screen properties
 	public static int screenwitdh = 800, screenheight = 600;
 
-	// KeyHandler variables (standard = false, so movements don't take place arbitrarily)
+	// Label for displaying life points and shield
+	public static JLabel livesLabel;
+	public static JLabel shieldLabel;
+
+	// Timer for shield and OFF by default
+	public static Timer shieldTimer;
+	public static boolean shieldActive = false;
+
+	// KeyHandler Variables (standard = false, so movements don't take place arbitrarily)
 	public static boolean moveUp = false, moveDown = false, moveLeft = false, moveRight = false;
 	
-	// Background variables
+	// Background Variables
 	public static BufferedImage spaceImage1, spaceImage2;
 	public static int backgroundY1 = 0;
 	public static int backgroundY2 = -600; // -600, because screen height = 600
 	
-	// SpaceShip variables
+	// SpaceShip Variables
 	public static BufferedImage imageUfo;
 	public static BufferedImage imageRocket;
 	public static BufferedImage imageDelorean;
@@ -30,7 +40,7 @@ public class Variables {
 	static int energy = 5;
 	static int maxEnergy = 5;
 		
-	// SpaceShip tail variables
+	// SpaceShip Tail Variables (Animation of engine)
 	public static BufferedImage ufoLights1, ufoLights2;
 	public static BufferedImage rocketLights1, rocketLights2;
 	public static BufferedImage deloreanLights1, deloreanLights2;
@@ -40,8 +50,14 @@ public class Variables {
 	public static BufferedImage imageMeteorite;
 	public static int[] meteoritesX = new int[10];
 	public static int[] meteoritesY = new int[10];
-	
-	// Collectibles
+
+	// Collision --> default = false
+	public static Image iconHit;
+	public static boolean collision = false;
+	public static boolean lostGame = false;
+	public static int expAnimation;
+
+	// Collectibles Variables
 	public static BufferedImage imageAstronaut;
 	public static BufferedImage imageET;
 	public static int[] collectiblesX1 = new int [5];
@@ -50,16 +66,10 @@ public class Variables {
 	public static int[] collectiblesY2 = new int [5];
 	public static int[] collectiblesSpeed1 = new int [6];
 	public static int[] collectiblesSpeed2 = new int [3];
-	
+
+	// Collecting --> default = false
 	public static boolean collect1 = false;
-	public static boolean collect2 = false;
-	
-	// Collision --> default = false
-	public static Image iconHit;
-	public static boolean collision = false;
-	public static boolean loseEnergy = false;
-	public static boolean lostGame = false;
-	public static int expAnimation;
+	// public static boolean collect2 = false;
 
 	// Constructor
 	public Variables() {

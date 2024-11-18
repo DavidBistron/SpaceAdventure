@@ -12,6 +12,15 @@ public class CollectiblesCollision extends CollisionHandler {
 	protected void handleCollision(int objectIndex) {
 		// Specific logic for collectibles
 		Variables.collect1 = true;
-		// Additional logic for collectibles
+
+		if (Variables.energy >= 1 && Variables.energy < 5) {
+			Variables.energy += 1;
+			updateLifeLabel();
+		}
+	}
+
+	// Updates Label for Live display
+	private static void updateLifeLabel() {
+		Variables.livesLabel.setText("Lives: " + Variables.energy);
 	}
 }

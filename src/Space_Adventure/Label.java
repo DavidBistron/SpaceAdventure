@@ -28,20 +28,16 @@ public class Label extends JLabel {
 		// Necessary code snippet for correct graphics
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		
-		/* Background
-		*  paint commands --> null = observer --> not needed, therefore null
-		*  x = 0, top left of the screen
-		*  y = different
-		*/
+
 		g.drawImage(Variables.spaceImage1, 0, Variables.backgroundY1, 800, 600, null);
 		g.drawImage(Variables.spaceImage2, 0, Variables.backgroundY2, 800, 600, null);
 				
-		// Collectibles
+		// Collectible Astronaut
 		for (int i = 0; i <= 4; i++) {
 			g.drawImage(Variables.imageAstronaut, Variables.collectiblesX1[i], Variables.collectiblesY1[i], 80, 60, null);
 		}
-		
+
+		// Collectible ET
 		for (int i = 0; i <= 4; i++) {
 			g.drawImage(Variables.imageET, Variables.collectiblesX2[i], Variables.collectiblesY2[i], 50, 30, null);
 		}
@@ -94,7 +90,7 @@ public class Label extends JLabel {
 			g.setColor(new Color(130, 0, 15));
 			g.setFont(new Font("Arial",Font.BOLD, 35));
 			g.drawString("Game Over!", 310, 200);
-			
+
 			repaint();
 		}
 		// Necessary method to draw the images constantly, not only once! If only once drawn, images will disappear immediately!

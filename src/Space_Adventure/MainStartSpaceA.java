@@ -4,6 +4,8 @@ public class MainStartSpaceA {
 	
 	// Call all classes and instantiate new objects
 	public static void main(String[] args) {
+
+		// Frame, Variables, KeyHandler and GUI
 		new StartGUI();
 		new Variables();
 		new Label();

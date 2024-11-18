@@ -40,7 +40,6 @@ public class HowToPlayGUI extends JFrame {
 	private static Icon ger = new ImageIcon("icons/ger.png");
 	private static Icon eng = new ImageIcon("icons/eng.png");
 
-	@SuppressWarnings({ "serial", "static-access" })
 	public HowToPlayGUI() {
 
 		howTo_frame = new JFrame("How to play the game");
@@ -67,7 +66,6 @@ public class HowToPlayGUI extends JFrame {
 	}
 
 	public static void addLabel(String text, Container container) {
-		// JLabel label = new JLabel(text);
 		label = new JLabel(text);
 		label.setAlignmentX(Component.CENTER_ALIGNMENT);
 		label.setForeground(Color.WHITE);
@@ -133,7 +131,6 @@ public class HowToPlayGUI extends JFrame {
 				addLabel("Start Game:", pane);
 				addLabel("Click on 'Start Game' and choose your spaceship and confirm your selection!", pane);
 				howTo_frame.revalidate();
-				// howTo_frame.repaint();
 			}
 		});
 		
